@@ -11,7 +11,7 @@ from tensorflow.keras.applications.resnet50 import preprocess_input
 from tensorflow.keras.layers import GlobalAveragePooling2D
 from tensorflow.keras.models import Model
 
-IMAGE_EXTS: Tuple[str, ...] = (".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff", ".webp")
+IMAGE_EXTENSIONS: Tuple[str, ...] = (".jpg", ".jpeg", ".png")
 
 CLASS_MAPPING = {
     "cardboard": 0,
@@ -33,12 +33,12 @@ def _collect_image_paths(root_dir: str, recursive: bool = True) -> List[str]:
     if recursive:
         for dirpath, _, filenames in os.walk(root_dir):
             for name in filenames:
-                if name.lower().endswith(IMAGE_EXTS):
+                if name.lower().endswith(IMAGE_EXTENSIONS):
                     paths.append(os.path.join(dirpath, name))
     else:
         for name in os.listdir(root_dir):
             full = os.path.join(root_dir, name)
-            if os.path.isfile(full) and name.lower().endswith(IMAGE_EXTS):
+            if os.path.isfile(full) and name.lower().endswith(IMAGE_EXTENSIONS):
                 paths.append(full)
 
     paths.sort()

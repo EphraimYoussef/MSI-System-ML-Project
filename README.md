@@ -4,6 +4,8 @@
  dataset preparation, feature extraction (ResNet50 features and optional HOG exploration), feature scaling, and
  classifier training (SVM / KNN). The repository also includes a live webcam demo and a simple Python inference script.**
 
+---
+
  ## Overview
  
  The system predicts one of the following classes (IDs are used consistently across the repo):
@@ -17,6 +19,8 @@
  - **unknown** (6)
  
  An **"unknown"** class is produced via a simple confidence-based rejection rule.
+
+---
 
  ## Table of Contents
  
@@ -32,6 +36,8 @@
  - [Troubleshooting](#troubleshooting)
  - [License](#license)
 
+---
+
  ## Features
  
  - **End-to-end ML pipeline** implemented via notebooks in `src/`.
@@ -44,11 +50,13 @@
  - **Confidence-based rejection** to return the `unknown` class for low-confidence predictions.
  - **Live camera demo** (`src/6-live_camera_app.ipynb`).
 
+---
+
  ## Repository Structure
 
 ```
 Material-Stream-Identification-System/
-├── models/                    # Saved model files
+├── models/                   # Saved model files
 │   ├── svm_model.pkl         # Trained SVM model
 │   ├── knn_model.pkl         # Trained KNN model
 │   └── scaler.pkl            # Feature scaler
@@ -80,6 +88,8 @@ Material-Stream-Identification-System/
     └── y_val.npy
 ```
 
+---
+
  ## Requirements
  
  The project dependencies are listed in `requirements.txt`:
@@ -94,6 +104,8 @@ Material-Stream-Identification-System/
  - `scikit-image`
  - `matplotlib`
  - `tensorflow`
+
+---
  
  ## Installation
  
@@ -103,6 +115,8 @@ Material-Stream-Identification-System/
  ```bash
  pip install -r requirements.txt
  ```
+
+---
 
  ## Quick Start (Inference)
  
@@ -122,6 +136,8 @@ Material-Stream-Identification-System/
  ```
  
  **Return value**: a list of integer class IDs (0-6). See [How Prediction Works](#how-prediction-works).
+
+---
  
  ## Live Camera Demo
  
@@ -135,6 +151,8 @@ Material-Stream-Identification-System/
  - Extracts ResNet50 features from a center ROI and predicts the class
  
  Press `q` to quit.
+
+---
  
  ## Training Pipeline (Notebooks)
  
@@ -178,6 +196,8 @@ Material-Stream-Identification-System/
    - Trains SVM (`SVC(probability=True)`) using `GridSearchCV`
    - Saves the trained model to `models/svm_model.pkl`
 
+---
+
  ## Generated Artifacts
  
  This repository already contains generated artifacts (so you can run inference without retraining):
@@ -186,6 +206,8 @@ Material-Stream-Identification-System/
  - `models/knn_model.pkl`
  - `models/scaler.pkl`
  - `features/X_*_cnn.npy`, `features/X_*_scaled.npy`, `features/y_*.npy`
+
+---
  
  ## How Prediction Works
  
@@ -199,12 +221,16 @@ Material-Stream-Identification-System/
    - For KNN, the fraction of neighbors voting for the predicted class must be `>= 0.6`.
  - Otherwise, prediction becomes **`unknown` (6)**.
 
+---
+
  ## Models
  
  - **SVM**: trained in `src/5-SVM_Model.ipynb` using `sklearn.svm.SVC(probability=True)` and saved to `models/svm_model.pkl`.
  - **KNN**: trained in `src/5-KNN_Model.ipynb` using `sklearn.neighbors.KNeighborsClassifier` and saved to `models/knn_model.pkl`.
  
  Both notebooks load the scaled CNN features from `features/X_*_scaled.npy`.
+
+---
 
  ## Dataset
  
@@ -222,6 +248,8 @@ Material-Stream-Identification-System/
  
  The repository does not enforce a specific dataset source; you can place your own labeled dataset there.
 
+---
+
  ## Troubleshooting
  
  - **Running `src/test.py` from the repo root**:
@@ -232,12 +260,15 @@ Material-Stream-Identification-System/
  - **TensorFlow logs / oneDNN**:
    - `src/test.py` sets `TF_CPP_MIN_LOG_LEVEL` and disables oneDNN optimizations for a quieter/consistent run.
 
+---
+
  ## Notes
  
  - The included inference code (`src/test.py`) runs **locally** and reads images from disk.
  - Predictions use a simple **rejection threshold** (default `0.6`) to output the `unknown` class when confidence is low.
  - The live camera notebook loads models using relative paths (e.g., `../models/...`), so it should be run from `src/`.
 
+---
 
 ## Acknowledgments
 
@@ -247,17 +278,19 @@ Material-Stream-Identification-System/
 - **TensorFlow Developers** - For the powerful deep learning framework
 - **All Contributors** - For their valuable contributions to the project
 
+---
+
 ## Contributors
-
-- **Ephraim Youssef**
-    - [GitHub Profile](https://github.com/EphraimYoussef)
-
-    - [LinkedIn Profile](https://www.linkedin.com/in/ephraimyoussef/)
 
 - **Abdelrahman Kadry**
     - [GitHub Profile](https://github.com/Kadry-jr)
 
     - [LinkedIn Profile](https://www.linkedin.com/in/abdel-rahman-kadry/)
+
+- **Ephraim Youssef**
+    - [GitHub Profile](https://github.com/EphraimYoussef)
+
+    - [LinkedIn Profile](https://www.linkedin.com/in/ephraimyoussef/)
 
 - **Omar Ahmed**
     - [GitHub Profile](https://github.com/Omar-Badwilan)

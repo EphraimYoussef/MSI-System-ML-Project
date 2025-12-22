@@ -34,7 +34,6 @@
  - [Generated Artifacts](#generated-artifacts)
  - [How Prediction Works](#how-prediction-works)
  - [Troubleshooting](#troubleshooting)
- - [License](#license)
 
 ---
 

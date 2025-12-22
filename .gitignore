@@ -40,7 +40,6 @@ venv.bak/
 *~
 
 # Dataset and model files (commonly large files)
-augmented_dataset/
 features/
 data_split/
 dataset/

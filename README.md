@@ -37,7 +37,6 @@
  - [Dataset](#dataset)
  - [Troubleshooting](#troubleshooting)
  - [Notes](#notes)
- - [Acknowledgments](#Acknowledgments)
  - [Contributors](#Contributors)
 
 ---
@@ -271,16 +270,6 @@ Material-Stream-Identification-System/
  - The included inference code (`src/test.py`) runs **locally** and reads images from disk.
  - Predictions use a simple **rejection threshold** (default `0.6`) to output the `unknown` class when confidence is low.
  - The live camera notebook loads models using relative paths (e.g., `../models/...`), so it should be run from `src/`.
-
----
-
-## Acknowledgments
-
-- **Faculty of Computers and Artificial Intelligence** - For academic support and resources
-- **OpenCV Community** - For the excellent computer vision library
-- **scikit-learn Team** - For the robust machine learning tools
-- **TensorFlow Developers** - For the powerful deep learning framework
-- **All Contributors** - For their valuable contributions to the project
 
 ---
 
